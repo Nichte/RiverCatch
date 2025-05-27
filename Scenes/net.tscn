@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqqgj3e1uwc5k"]
+
+[ext_resource type="Texture2D" uid="uid://dbonirmvoydyy" path="res://Assets/net.png" id="1_0ln44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew7kw"]
+size = Vector2(51, 368)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0ln44"]
+
+[node name="Net" type="Area2D"]
+collision_layer = 2
+
+[node name="NetCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ew7kw")
+
+[node name="Net" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_0ln44")
+scale = Vector2(0.53, 0.778)
+texture = ExtResource("1_0ln44")

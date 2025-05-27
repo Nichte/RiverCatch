@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dry1lju1apbfv"]
+
+[ext_resource type="PackedScene" uid="uid://yvphvfof87ii" path="res://Scenes/death_screen.tscn" id="1_8fo1c"]
+[ext_resource type="Script" uid="uid://dqrlmhmwdymj0" path="res://Scenes/game_over.gd" id="1_ek8ke"]
+[ext_resource type="FontFile" uid="uid://b5rmpaagb8qpr" path="res://Assets/pixel_font.ttf" id="1_ojehl"]
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ek8ke")
+
+[node name="DeathScreen" parent="." instance=ExtResource("1_8fo1c")]
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 580.0
+offset_bottom = 329.0
+
+[node name="GOPanelContainer" type="PanelContainer" parent="."]
+z_index = 17
+layout_mode = 0
+offset_left = -112.0
+offset_top = 103.0
+offset_right = 115.0
+offset_bottom = 247.0
+
+[node name="GOBoxContainer" type="VBoxContainer" parent="GOPanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Restart" type="Button" parent="GOPanelContainer/GOBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ojehl")
+text = "Restart"
+
+[node name="Tutorial" type="Button" parent="GOPanelContainer/GOBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ojehl")
+text = "Tutorial"
+
+[node name="Exit" type="Button" parent="GOPanelContainer/GOBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ojehl")
+text = "Exit"
+
+[connection signal="pressed" from="GOPanelContainer/GOBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GOPanelContainer/GOBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="GOPanelContainer/GOBoxContainer/Exit" to="." method="_on_exit_pressed"]
